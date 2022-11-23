@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, isDevMode } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, concat, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +12,13 @@ export class GoetheService {
 
   constructor(private readonly http: HttpClient) {}
 
-  query(): Observable<any> {
-    return this.http
-      .get(this.getUrl())
-      .pipe(catchError(() => of('Fehler beim Abfragen der Termine')));
+  query(): Observable<string | any[]> {
+    return concat(
+      of('Lade...'),
+      this.http
+        .get<any[]>(this.getUrl())
+        .pipe(catchError(() => of('Fehler beim Abfragen der Termine')))
+    );
   }
 
   private getUrl(): string {
