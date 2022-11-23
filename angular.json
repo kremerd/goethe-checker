@@ -39,6 +39,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "https://kremerd.github.io/goethe-checker/",
               "budgets": [
                 {
                   "type": "initial",
