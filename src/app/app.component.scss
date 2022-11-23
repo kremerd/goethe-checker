@@ -1,0 +1,23 @@
+.response {
+  overflow: scroll;
+  background-color: aquamarine;
+  padding: 12px;
+
+  &.success {
+    background-color: red;
+    color: white;
+  }
+}
+
+.success-message {
+  color: red;
+}
+
+.subline {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.links {
+  margin-top: 12px;
+}

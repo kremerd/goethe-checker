@@ -1,1 +1,15 @@
-Hello World
+<div class="container">
+  <h1>Goethe Checker</h1>
+
+  <div>Letzte Antwort:</div>
+  <pre class="response" [class.success]="lastResponseSuccessful$ | async">{{ lastResponse$ | async | json }}</pre>
+
+  <div class="success-message" *ngIf="lastResponseSuccessful$ | async">Termin verfügbar! Screenshot machen und jetzt buchen!</div>
+  <div class="subline">Ansicht aktualisiert sich in {{ timeUntilRefresh$ | async }}</div>
+
+  <div class="links">
+    <a href=".">Jetzt aktualisieren</a>
+    -
+    <a href="https://goethelb.com/" target="_blank">Zum Goethe-Institut</a>
+  </div>
+</div>
